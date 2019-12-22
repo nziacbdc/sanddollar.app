@@ -27,7 +27,7 @@ hugo
 
 echo "Updating gh-pages branch"
 cd public
-echo sda.aenism.com >> CNAME
+echo sanddollar.app >> CNAME
 git add --all
 git commit -m "Publishing to gh-pages (deploy.sh)"
 
