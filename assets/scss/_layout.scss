@@ -1,0 +1,238 @@
+//
+// General
+//
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-ui-darkest;
+  position: relative;
+}
+
+
+// 
+// Flex helpers
+// 
+
+.d-flex {
+  display: flex;
+}
+
+
+// 
+// Margin helpers
+//
+
+.mtg1 {
+  margin-top: $grid-gutter;
+}
+
+.mbg1 {
+  margin-bottom: $grid-gutter;
+}
+
+.mvg1 {
+  margin-top: $grid-gutter;
+  margin-bottom: $grid-gutter;
+}
+
+
+// 
+// Sections
+// 
+
+main {
+  @include media("<md", "landscape") {
+    padding-top: 160px;
+    padding-bottom: 80px;
+  }
+  @include media("<sm") {
+    padding-top: 192px;
+    padding-bottom: 96px;
+  }
+}
+
+
+//
+// Header
+//
+
+body > header {
+  position: absolute;
+  width: 100vw;
+  z-index: $zindex-sticky;
+  top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include media(">lg") {
+    top: 80px;
+    padding-left: 80px;
+    justify-content: flex-start;
+  }
+
+  .brand-logo {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin-right: 24px;
+  }
+
+  .brand-title {
+    width: 240px;
+
+    @include media("<sm") {
+      width: 160px;
+    }
+  }
+
+  .h1 {
+    margin-bottom: 8px;
+  }
+
+  .tagline {
+    @include media(">lg") {
+      display: none;
+    }
+  }
+}
+
+
+//
+// Hero section
+// 
+
+section.hero {
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+
+  @include media(">lg") {
+    min-height: 100vh;
+  }
+  
+  .row {
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+  }
+
+  .hero-text {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+
+    @include media(">lg") {
+      text-align: left;
+      justify-content: flex-start;
+      padding-left: 80px;
+
+      h1 {
+        font-size: $h4-font-size;
+        line-height: $h4-line-height;
+      }
+    }
+  }
+
+  .hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    @include media(">xl") {
+      overflow: visible;
+    }
+  }
+
+  .hero-image {
+    position: relative;
+    width: 554px;
+    height: 442px;
+
+    @include media("<sm") {
+      transform: scale(0.8);
+      transform-origin: center;
+    }
+
+    @include media(">xl") {
+      margin-top: 111px;
+      transform: scale(1.5);
+      transform-origin: center;
+    }
+
+    img {
+      width: 554px;
+      height: 442px;
+    }
+  }
+
+  .hero-device {
+    position: absolute;
+    z-index: $zindex-sticky;
+  }
+
+  .hero-backgrounds {
+    img {
+      display: block;
+    }
+  }
+
+  .download-link {
+    margin-left: -8px;
+
+    a {
+      display: block;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+    
+    img {
+      display: block;
+    }
+
+    &.ios .android,
+    &.android .ios {
+      display: none;
+    }
+  }
+}
+
+
+// 
+// Footer
+// 
+
+body > footer {
+  position: absolute;
+  z-index: $zindex-sticky;
+  width: 100vw;
+  bottom: $grid-gutter;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+  display: flex;
+  justify-content: space-between;
+
+  @include media(">xl") {
+    bottom: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .copyright {
+    margin-top: 32px;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
